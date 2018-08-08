@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<h2>events list</h2>
+{% endblock %}
+
+{% block content %}
+{% if events_list %}
+<div class="row">
+    {% for events in events_list %}
+    <div class="col-xs-6 col-lg-4">
+        <h4><a href="{% url 'events:events_detail' events.id %}">
+        {{ events.name }}
+        </a></h4>
+        <h5>{{ events.review_set.count }} reviews</h5>
+        <h5>{{ events.average_rating | floatformat }} average rating</h5>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    <p>No eventss are available.</p>
+{% endif %}
+{% endblock %}
