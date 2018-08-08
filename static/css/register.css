@@ -1,0 +1,41 @@
+/*{ url_for('static', filename='image/1.jpg') }}" width="100"*/
+/*html {*/
+    /*background: url('../images/1.jpg') no-repeat center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+/*}*/
+
+
+
+
+html{
+    position: relative;
+    min-height: 100%;
+    font-size: 62.5%;
+
+}
+
+
+body{
+    padding:0;
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+}
+
+
+.form-container{
+    padding:10px;
+    margin:60px 0 0 0 ;
+    color:#ffffff;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 1px 4px 20px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 4px 20px 10px rgba(0,0,0,0.75);
+    box-shadow: 1px 4px 20px 10px rgba(0,0,0,0.75);
+    border-radius: 10px;
+}
+
+.form-container h2{
+    text-align: center;
+}
