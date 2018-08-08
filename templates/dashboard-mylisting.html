@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="wrapper">
+                <!--content -->
+                <div class="content">
+                    <!--section -->
+                    <section id="sec1">
+                        <!-- container -->
+                        <div class="container">
+                            <!-- profile-edit-wrap -->
+                            <div class="profile-edit-wrap">
+                                <div class="profile-edit-page-header">
+                                    <h2>Messages </h2>
+                                    <div class="breadcrumbs"><a href="#">Home</a><a href="#">Dasboard</a><span>Messages</span></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="fixed-bar fl-wrap">
+                                            <div class="user-profile-menu-wrap fl-wrap">
+                                                <!-- user-profile-menu-->
+                                                <div class="user-profile-menu">
+                                                    <h3>Main</h3>
+                                                    <ul>
+                                                    	<li><a href="dashboard.html"><i class="fa fa-gears"></i>Dashboard</a></li>
+{#                                                        <li><a href="dashboard-myprofile.html"><i class="fa fa-user-o"></i> Edit profile</a></li>#}
+                                                        <li><a href="dashboard-messages.html"><i class="fa fa-envelope-o"></i> Messages <span>3</span></a></li>
+{#                                                        <li><a href="dashboard-password.html"><i class="fa fa-unlock-alt"></i>Change Password</a></li>#}
+                                                    </ul>
+                                                </div>
+                                                <!-- user-profile-menu end-->
+                                                <!-- user-profile-menu-->
+{#                                                <div class="user-profile-menu">#}
+{#                                                    <h3>Listings</h3>#}
+{#                                                    <ul>#}
+{#                                                        <li><a href="dashboard-listing-table.html" class="user-profile-act"><i class="fa fa-th-list"></i> My listigs  </a></li>#}
+{#                                                        <li><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Bookings <span>2</span></a></li>#}
+{#                                                        <li><a href="dashboard-review.html"><i class="fa fa-comments-o"></i> Reviews </a></li>#}
+{#                                                        <li><a href="dashboard-add-listing.html"><i class="fa fa-plus-square-o"></i> Add New</a></li>#}
+{#                                                    </ul>#}
+{#                                                </div>#}
+                                                <!-- user-profile-menu end-->
+                                                <a href="{% url 'logout' %}" class="log-out-btn">Log Out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="dashboard-list-box fl-wrap">
+
+                                            {% for myevent in my_all_events.object_list %}
+
+                                            <!-- dashboard-list end-->
+                                                <div class="dashboard-list">
+                                                <div class="dashboard-message">
+                                                    <div class="dashboard-listing-table-image">
+                                                        <a href=""><img src="/static/images/all/1.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="dashboard-listing-table-text">
+                                                        <h4><a href="">{{ myevent.name }}</a></h4>
+                                                        <span class="dashboard-listing-table-address"><i class="fa fa-map-marker"></i><a >{{ myevent.city }}</a></span>
+                                                        <div class="listing-rating card-popup-rainingvis fl-wrap" data-starrating2="5">
+                                                            <span>reviews:{{ myevent.review_count }}</span>
+                                                        </div>
+                                                        <ul class="dashboard-listing-table-opt  fl-wrap">
+                                                            <li><a href="/updateevent/{{ myevent.id }}">Edit <i class="fa fa-pencil-square-o"></i></a></li>
+                                                            <li><a href="/delete/{{ myevent.id }}" class="del-btn">Delete <i class="fa fa-trash-o"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {% endfor %}
+                                            <!-- dashboard-list end-->
+
+                                        </div>
+                                        <!-- pagination-->
+                                        <div class="pagination">
+
+                                            {% if my_all_events.has_previous %}
+
+                                                    <a href="?{{ my_all_events.previous_page_number.querystring }}" class="prevposts-link">previous
+                                                    </a>
+
+                                            {% endif %}
+
+                                            {% for page in my_all_events.pages %}
+
+                                                {% if page %}
+                                                    {% ifequal page my_all_events.number %}
+                                                        <a class="current-page" href="?{{ page.querystring }}">{{ page }}</a>
+                                                    {% else %}
+                                                        <a href="?{{ page.querystring }}">{{ page }}</a>
+                                                    {% endifequal %}
+                                                {% else %}
+                                                    <a href="">...</a>
+
+                                                {% endif %}
+
+                                            {% endfor %}
+
+                                            {% if my_all_events.has_next %}
+                                                     <a href="?{{ my_all_events.next_page_number.querystring }}">next</a>
+                                            {% endif %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--profile-edit-wrap end -->
+                        </div>
+                        <!--container end -->
+                    </section>
+                    <!-- section end -->
+                    <div class="limit-box fl-wrap"></div>
+                    <!--section -->
+                    <section class="gradient-bg">
+                        <div class="cirle-bg">
+                            <div class="bg" data-bg="/static/images/bg/circle.png"></div>
+                        </div>
+                        <div class="container">
+                            <div class="join-wrap fl-wrap">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h3>Do You Have Questions ?</h3>
+                                        <p>Lorem ipsum dolor sit amet, harum dolor nec in, usu molestiae at no.</p>
+                                    </div>
+                                    <div class="col-md-4"><a href="contacts.html" class="join-wrap-btn">Get In Touch <i class="fa fa-envelope-o"></i></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- section end -->
+                </div>
+            </div>
+{% endblock %}
+
+
+                                                                                                                                                  261,1         Bot
